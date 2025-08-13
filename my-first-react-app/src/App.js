@@ -1,19 +1,16 @@
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import React  from "react";
-
+import React from "react";
 
 function App() {
+  // const [ad, setAd] = React.useState(null);
+  // React.useEffect(()=>{
+  // fetch("http://127.0.0.1:5000/api/ads") // Change to your backend URL
+  //       .then((res) => res.json())
+  //       .then((data) => setAd(data))
+  //       .catch((err) => console.error("Error fetching ad:", err));
 
-// const [ad, setAd] = React.useState(null);
-// React.useEffect(()=>{
-// fetch("http://127.0.0.1:5000/api/ads") // Change to your backend URL
-//       .then((res) => res.json())
-//       .then((data) => setAd(data))
-//       .catch((err) => console.error("Error fetching ad:", err));
-      
-// },[]);
-
+  // },[]);
 
   const [showDetails, setShowDetails] = React.useState(false);
   const [videoData, setVideoData] = React.useState({
@@ -112,20 +109,23 @@ function App() {
     link.click();
     link.remove();
   };
-  
 
   return (
     <div className="App">
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg  shadow-sm px-4 position-fixed z-1 w-100">
-        <a className="navbar-brand fw-bold text-primary " href="#">
-          <span id="save">Save</span>
-          <span id="reelz">Reelz</span>
-        </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse justify-content-center  items" id="navbarNav">
+        <div
+          className="collapse navbar-collapse  justify-content-center bg-white mt-md-0 mt-4 items"
+          id="navbarNav"
+          style={{ height: "50px" }}
+        >
+          <a className="navbar-brand save fw-bold text-primary me-lg-5" href="#">
+            <span id="save">Save</span>
+            <span id="reelz">Reelz</span>
+          </a>
           <ul className="navbar-nav gap-lg-5">
             <li className="nav-item">
               <a className="nav-link text-dark" href="youtubedown">
@@ -143,7 +143,7 @@ function App() {
               </a>
             </li>
           </ul>
-          <form className="d-flex ms-md-auto my-2 my-lg-0 " role="search" style={{ maxWidth: "300px", width: "100%" }}>
+          <form className="d-flex ms-md-auto my-2 my-lg-0 me-lg-3 " role="search" style={{ maxWidth: "220px", width: "100%" }}>
             <input
               className="form-control me-2"
               type="search"
@@ -151,21 +151,22 @@ function App() {
               aria-label="Search"
               style={{ minWidth: "0" }}
             />
-            <button className="btn btn-outline-success" type="submit">
-              <i className="fas fa-search" style={{ color: "black" }}></i>
-            </button>
           </form>
         </div>
+        <button className="btn bg-white ms-lg-2 pos" type="submit" style={{ height: "48px" }}>
+          <i className="fas fa-search" style={{ color: "black" }}></i>
+        </button>
       </nav>
 
       {/* Card at bottom for dsektop */}
       <section
         className="hero-section d-flex flex-column align-items-center justify-content-end text-center"
         style={{
-          background: "linear-gradient(to bottom right, #2b516eff, #b8c6d1)",
+          background: "linear-gradient(300deg, #72a2a2ff, #e2dae7ff, #e0cce2ff, #a0c1c1ff)",
           minHeight: "80vh",
           position: "relative",
           overflow: "hidden",
+          borderRadius: "12px",
         }}
       >
         <h1 id="texty">SaveReelz</h1>
@@ -204,7 +205,7 @@ function App() {
           <div className={` video-details-container  mt-4  ${showDetails ? "open" : "d-none"}`}>
             <div
               className="card shadow p-3"
-              style={{ background: "linear-gradient(to bottom right, #41616cff, #d7d8eeff)" }}
+              style={{ background: "linear-gradient(to bottom right, #ffffffff)" }}
             >
               {/* Thumbnail + Info */}
               <div className="row align-items-center">
@@ -221,7 +222,7 @@ function App() {
                         maxWidth: "100%",
                         whiteSpace: "normal",
                         lineHeight: "20px",
-                        background: "linear-gradient(to bottom right, #6ecedfff, #d7d8eeff)",
+                        background: "linear-gradient(to bottom right, #54848dff,)",
                         marginTop: "10px",
                       }}
                     >
@@ -236,7 +237,10 @@ function App() {
               {/* Audio */}
               <h6 className="mt-3 text-start">
                 {/* Ad Row */}
-                   <div className="ads-section mt-2 mb-2 p-3 text-center text-md-start border rounded d-flex flex-column flex-md-row align-items-center gap-3" style={{background: "linear-gradient(to bottom right, rgba(142, 175, 135, 0.59), #d7d8eeff)"}}>
+                <div
+                  className="ads-section mt-2 mb-2 p-3 text-center text-md-start border rounded d-flex flex-column flex-md-row align-items-center gap-3"
+                  style={{ background: "linear-gradient(to bottom right, rgba(142, 175, 135, 0.59), #d7d8eeff)" }}
+                >
                   {/* Image */}
                   <img
                     src="ifly.png"
@@ -257,15 +261,12 @@ function App() {
                     </button>
                   </div>
                 </div>
-
-
-
                 <i className="fas fa-music me-2 mt-3"></i>Audio:
               </h6>
 
               {/* Audio Row */}
 
-              <div className="border rounded p-2">
+              <div className="border rounded p-2" style={{backgroundColor:"#e6e2e2ff"}}>
                 <div className="d-flex justify-content-between align-items-center">
                   <span>MP3</span>
                   <span>{videoData.audio.size || "N/A"}</span>
@@ -283,7 +284,7 @@ function App() {
               {videoData.video.map(({ resolution, size }) => (
                 <div
                   key={resolution}
-                  className="d-flex justify-content-between align-items-center border rounded p-2 mt-2"
+                  className="d-flex justify-content-between align-items-center border rounded p-2 mt-2" style={{backgroundColor:"#e6e2e2ff"}}
                 >
                   <span>{resolution}</span>
                   <span>{size}</span>
@@ -318,7 +319,7 @@ function App() {
         <p style={{ paddingTop: "5px" }}>Who we serve</p>
       </div>
       {/* Group cards*/}
-      <div className="container text-start pe-lg-0 me-lg-5 card-con">
+      <div className="container text-start pe-lg-0  card-con">
         <div className="row justify-content-center align-items-start mx-auto ms-lg-4">
           {[
             {
@@ -414,7 +415,7 @@ function App() {
       </div>
 
       {/*via save reelz text */}
-      <div 
+      <div
         class="conatiner-fluid"
         id="you"
         style={{
@@ -523,7 +524,7 @@ function App() {
                 text: "Open the target video in YouTube that you want to download.",
               },
             ].map((card, index) => (
-              <div className="col-12 col-md-4 mb-4 d-flex justify-content-center mt-5" key={index}>
+              <div className="col-12 col-md-4 mb-4 d-flex justify-content-start mt-5" key={index}>
                 <div
                   className="card h-100 flex-column text-start p-3 rounded-4 mt-5 me-md-5 me-0"
                   style={{ maxWidth: "23rem" }}

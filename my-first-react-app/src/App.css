@@ -7,7 +7,7 @@ body {
 }
 
 .hero-section {
-  background-image: url(""); /* optional background or blur */
+  
   position: relative;
   overflow: hidden;
 }
@@ -29,44 +29,58 @@ body {
   }
 }
 
+
 .navbar {
   background: linear-gradient(
     to right,
-    #d4dede3b,
-    #097ee45c
+    #eef1f1fc,
+    rgba(63, 164, 164, 0.277),
+    #eef1f1fc
   ); /* gradient colors */
 }
 
 @media (min-width: 700px) {
-  .navbar-nav{
-    
-  }
+ .save{
+  position: relative;
+  right: 100px;
+ }
+ #navbarNav{
+border-radius: 20px;
+ }
   .items {
     padding-left: 150px;
   }
   #texty {
-    color: white;
-    height: 20rem;
-    width: 60rem;
-    padding-top: 9rem;
+  color: rgba(255, 255, 255, 1); /* solid at the top */
+height: 20rem;
+width: 60rem;
+padding-top: 7.3rem;
 
-    font-weight: 400s;
-    font-size: 13rem;
-    margin-bottom: 17rem;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    opacity: calc(1);
-    filter: blur(0px);
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 0)
-    );
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
+font-weight: 400;
+font-size: 13rem;
+margin-bottom: 17rem;
 
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.426), rgba(0, 0, 0, 0));
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
+opacity: 1;
+filter: blur(0px);
+
+/* Fade out only at the bottom */
+-webkit-mask-image: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 1) 80%,   /* fully visible for top 80% */
+  rgba(0, 0, 0, 0) 100%  /* transparent at bottom */
+);
+-webkit-mask-size: 100% 100%;
+-webkit-mask-repeat: no-repeat;
+
+mask-image: linear-gradient(
+  to bottom,
+  rgba(0, 0, 0, 1) 80%,
+  rgba(0, 0, 0, 0) 100%
+);
+mask-size: 100% 100%;
+mask-repeat: no-repeat;
+
+
   }
 }
 .text-dark:hover {
@@ -140,6 +154,18 @@ body {
   transform: skew(-20deg);
 }
 @media(max-width:700px){
+
+  .items{
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .pos{
+    position: relative;
+    left: 250px;
+    bottom: 70px;
+  }
+    
+  
   
   #texty{
    color: white;
