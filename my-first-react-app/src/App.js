@@ -122,7 +122,7 @@ function App() {
           id="navbarNav"
           style={{ height: "50px" }}
         >
-          <a className="navbar-brand save fw-bold text-primary me-lg-5" href="#">
+          <a className="navbar-brand save fw-bold text-primary me-lg-5" href="/">
             <span id="save">Save</span>
             <span id="reelz">Reelz</span>
           </a>
@@ -133,7 +133,7 @@ function App() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark" href="#">
+              <a className="nav-link text-dark" href="#download">
                 Youtube To Mp3
               </a>
             </li>
@@ -177,7 +177,7 @@ function App() {
             <button className="btn btn-1 text-white pt-3 fs-4">Video</button>
           </div>
 
-          <div className="input-group my-4">
+          <div className="input-group my-4" id="download">
             <input
               type="url"
               className="form-control rounded-pill ps-4"
@@ -270,7 +270,7 @@ function App() {
                 <div className="d-flex justify-content-between align-items-center">
                   <span>MP3</span>
                   <span>{videoData.audio.size || "N/A"}</span>
-                  <button className="btn btn-primary btn-sm" onClick={handleDirectDownload}>
+                  <button className="btn btn-primary btn-sm" onClick={handleAudioDownload}>
                     Download <i className="fas fa-download ms-1"></i>
                   </button>
                 </div>
@@ -584,39 +584,39 @@ function App() {
                 <div class="row" style={{ marginTop: "5rem" }}>
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links" style={{ paddingRight: "70px" }}>
+                    <a href="/" class="quick-links" style={{ paddingRight: "70px" }}>
                       Home
                     </a>
                   </div>
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links">
+                    <a href="#terms" class="quick-links">
                       Terms of Use
                     </a>
                   </div>
 
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links">
+                    <a href="#download" class="quick-links">
                       Youtube To Mp3
                     </a>
                   </div>
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links" style={{ paddingRight: "20px" }}>
+                    <a href="#copyright" class="quick-links" style={{ paddingRight: "20px" }}>
                       Copyright
                     </a>
                   </div>
 
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links">
+                    <a href="#download" class="quick-links">
                       Youtube To Mp4
                     </a>
                   </div>
                   <div class="col-6 quick-links">
                     <i class="fa-solid fa-link text-primary"></i>
-                    <a href="#" class="quick-links">
+                    <a href="#privacy" class="quick-links">
                       Privacy Policy
                     </a>
                   </div>
