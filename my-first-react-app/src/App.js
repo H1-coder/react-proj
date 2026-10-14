@@ -2,6 +2,8 @@ import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import React from "react";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
+
 function App() {
   // const [ad, setAd] = React.useState(null);
   // React.useEffect(()=>{
@@ -36,7 +38,7 @@ function App() {
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/video-info", {
+      const res = await fetch(`${API_URL}/api/video-info`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
@@ -68,7 +70,7 @@ function App() {
     }
 
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/download/audio?url=${encodeURIComponent(url)}`);
+      const res = await fetch(`${API_URL}/api/download/audio?url=${encodeURIComponent(url)}`);
       if (!res.ok) throw new Error("Failed to get audio URL");
 
       const { audio_url } = await res.json();
@@ -88,7 +90,7 @@ function App() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5000/api/download/video?url=${encodeURIComponent(url)}&res=${resolution}`
+        `${API_URL}/api/download/video?url=${encodeURIComponent(url)}&res=${resolution}`
       );
       if (!res.ok) throw new Error("Failed to get video URL");
 
